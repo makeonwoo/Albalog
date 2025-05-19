@@ -37,7 +37,7 @@
 | 위젯           | **미정** (AppWidgetProvider 예정)    |
 | 날짜 연산      | **미정** (java.time 등 고려 중)      |
 | 아키텍처       | MVVM + LiveData                      |
-| Android Studio | Chipmunk 2021.2.1 Patch 2            |
+| Android Studio | Meerkat 2024.3.2 (Feature Drop)      |
 | Gradle Plugin  | 8.7.0                                |
 | Gradle         | 8.1.4-milestone-8                    |
 
