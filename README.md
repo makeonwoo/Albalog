@@ -33,13 +33,13 @@
 | 언어           | Kotlin                              |
 | UI             | Jetpack Compose (또는 XML)           |
 | DB             | Room, SharedPreferences              |
-| 캘린더         | **미정** (예: MaterialCalendarView 등) |
-| 위젯           | **미정** (AppWidgetProvider 예정)     |
-| 날짜 연산      | **미정** (java.time 등 고려 중)       |
+| 캘린더         | **미정** (예: MaterialCalendarView 등)|
+| 위젯           | **미정** (AppWidgetProvider 예정)    |
+| 날짜 연산      | **미정** (java.time 등 고려 중)      |
 | 아키텍처       | MVVM + LiveData                      |
 | Android Studio | Chipmunk 2021.2.1 Patch 2            |
-| Gradle Plugin  | 4.2.2                                |
-| Gradle         | 7.0.2                                |
+| Gradle Plugin  | 8.7.0                                |
+| Gradle         | 8.1.4-milestone-8                    |
 
 ---
 
