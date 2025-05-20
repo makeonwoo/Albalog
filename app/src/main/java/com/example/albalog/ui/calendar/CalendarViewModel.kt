@@ -1,36 +1,28 @@
 package com.example.albalog.ui.calendar
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.time.LocalDate
+import java.time.YearMonth
 
 class CalendarViewModel : ViewModel() {
 
-    val selectedDate = MutableLiveData<LocalDate>()
-    val albaList = MutableLiveData<List<AlbaItem>>()
-    val weeklyGoals = MutableLiveData<List<GoalItem>>()
+    private val _selectedDate = MutableLiveData<LocalDate?>()
+    val selectedDate: LiveData<LocalDate?> = _selectedDate
 
-    init {
-        // 초기값 설정 (예: 오늘 날짜)
-        selectedDate.value = LocalDate.now()
-        loadMockData(selectedDate.value!!)
+    private val _eventDates = MutableLiveData<Set<LocalDate>>()
+    val eventDates: LiveData<Set<LocalDate>> = _eventDates
+
+    fun selectDate(date: LocalDate) {
+        _selectedDate.value = if (_selectedDate.value == date) null else date
     }
 
-    fun onDateSelected(date: LocalDate) {
-        selectedDate.value = date
-        loadMockData(date)
-    }
-
-    // 임시 목업 데이터
-    private fun loadMockData(date: LocalDate) {
-        albaList.value = listOf(
-            AlbaItem("Convenience store", "10:00 AM – 2 hr", 25.0)
-        )
-        weeklyGoals.value = listOf(
-            GoalItem("Exercise 1 hour", "Mon. Thu", 3, 4)
-        )
+    fun loadEvents(month: YearMonth) {
+        //TODO 특정 날짜에 도트 표시할때 사용 - 데이터 세팅 이후에 추가 수정
+        _eventDates.value = listOf(
+            LocalDate.of(month.year, month.month, 5),
+            LocalDate.of(month.year, month.month, 12)
+        ).toSet()
     }
 }
-
-data class AlbaItem(val title: String, val time: String, val wage: Double)
-data class GoalItem(val title: String, val days: String, val done: Int, val total: Int)

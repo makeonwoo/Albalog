@@ -2,12 +2,35 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="48dp"
     android:layout_height="48dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="4dp">
 
+    <!-- 선택된 날짜 배경 (둥근네모) -->
+    <View
+        android:id="@+id/viewSelectedBackground"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_selected_rounded"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <!-- 날짜 숫자 -->
     <TextView
         android:id="@+id/calendarDayText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textColor="@android:color/black" />
+
+    <!-- 이벤트 점 표시 -->
+    <View
+        android:id="@+id/viewDot"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/bg_dot_circle"
+        android:visibility="gone" />
 </FrameLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#C6E2CC"/> <!-- 연초록, 필요시 다크/라이트 조정 -->
+</shape>

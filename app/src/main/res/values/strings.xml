@@ -3,4 +3,20 @@
     <string name="title_calendar">Calendar</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- 날짜 포멧팅 -->
+    <string name="date_format">MMMM yyyy</string>
+
+    <!--요일 -->
+    <string name="day_sunday">Su</string>
+    <string name="day_monday">Mo</string>
+    <string name="day_tuesday">Tu</string>
+    <string name="day_wednesday">We</string>
+    <string name="day_thursday">Th</string>
+    <string name="day_friday">Fr</string>
+    <string name="day_saturday">Sa</string>
+
+
+
+
 </resources>

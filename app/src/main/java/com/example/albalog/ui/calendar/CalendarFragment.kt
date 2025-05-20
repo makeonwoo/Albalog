@@ -4,25 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.albalog.R
 import com.example.albalog.databinding.FragmentCalendarBinding
-import com.kizitonwose.calendar.core.CalendarDay
-import com.kizitonwose.calendar.core.DayPosition
-import com.kizitonwose.calendar.view.ViewContainer
-import java.time.LocalDate
-import com.kizitonwose.calendar.view.MonthDayBinder
+import com.kizitonwose.calendar.view.CalendarView
+import java.time.DayOfWeek
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class CalendarFragment : Fragment() {
 
     private var _binding: FragmentCalendarBinding? = null
     private val binding get() = _binding!!
 
-    private val today = LocalDate.now()
-    private val monthFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월")
+    private lateinit var viewModel: CalendarViewModel
+    private lateinit var calendarView: CalendarView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,43 +31,50 @@ class CalendarFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val startMonth = YearMonth.now().minusMonths(12)
-        val endMonth = YearMonth.now().plusMonths(12)
-        val firstDayOfWeek = java.time.DayOfWeek.SUNDAY
+        viewModel = ViewModelProvider(this)[CalendarViewModel::class.java]
+        calendarView = binding.calendarView
 
-        // CalendarView 범위 설정
-        binding.calendarView.setup(startMonth, endMonth, firstDayOfWeek)
-        // scrollToMonth 현재 월로 바로 보여주기
-        binding.calendarView.scrollToMonth(YearMonth.now())
+        setupCalendar()
+        observeViewModel()
+    }
 
-        // 스크롤로 달력 이동시 월(상단 텍스트) 갱신해주기
-        binding.calendarView.monthScrollListener = { month ->
-            binding.txtMonth.text = monthFormatter.format(month.yearMonth)
+    private fun setupCalendar() {
+        val today = YearMonth.now()
+        val startMonth = today.minusMonths(12)
+        val endMonth = today.plusMonths(12)
+        val firstDayOfWeek = DayOfWeek.SUNDAY
+
+        calendarView.setup(startMonth, endMonth, firstDayOfWeek)
+        calendarView.scrollToMonth(today)
+
+        // 월 스크롤 시 상단 텍스트 갱신 + 이벤트 불러오기
+        calendarView.monthScrollListener = {
+            val dateFormatPattern = context?.getString(R.string.date_format)  // 포멧팅 형식 변경
+            val formatter = DateTimeFormatter.ofPattern(dateFormatPattern, Locale.ENGLISH)
+            binding.txtMonth.text = formatter.format(it.yearMonth)
+            viewModel.loadEvents(it.yearMonth)
         }
 
-        binding.calendarView.dayBinder = object : MonthDayBinder<DayViewContainer> {
-            override fun create(view: View) = DayViewContainer(view)
+        // 바인더 연결 (ViewModel의 상태로 View 구성)
+        calendarView.dayBinder = CalendarDayBinder(
+            getSelectedDate = { viewModel.selectedDate.value },
+            getEvents = { viewModel.eventDates.value ?: emptySet() },
+            onDateSelected = { viewModel.selectDate(it) }
+        )
+    }
 
-            override fun bind(container: DayViewContainer, day: CalendarDay) {
-                val textView = container.textView
-                val date = day.date
-                textView.text = date.dayOfMonth.toString()
+    private fun observeViewModel() {
+        viewModel.selectedDate.observe(viewLifecycleOwner) {
+            calendarView.notifyCalendarChanged()
+        }
 
-                if (day.position == DayPosition.MonthDate) {
-                    textView.visibility = View.VISIBLE
-                } else {
-                    textView.visibility = View.INVISIBLE
-                }
-            }
+        viewModel.eventDates.observe(viewLifecycleOwner) {
+            calendarView.notifyCalendarChanged()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    inner class DayViewContainer(view: View) : ViewContainer(view) {
-        val textView = view.findViewById<TextView>(R.id.calendarDayText)
     }
 }

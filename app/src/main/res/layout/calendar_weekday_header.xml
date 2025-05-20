@@ -10,48 +10,55 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="일" />
+        android:textStyle="bold"
+        android:text="@string/day_sunday" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="월" />
+        android:textStyle="bold"
+        android:text="@string/day_monday" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="화" />
+        android:textStyle="bold"
+        android:text="@string/day_tuesday" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="수" />
+        android:textStyle="bold"
+        android:text="@string/day_wednesday" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="목" />
+        android:textStyle="bold"
+        android:text="@string/day_thursday" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="금" />
+        android:textStyle="bold"
+        android:text="@string/day_friday" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="토" />
+        android:textStyle="bold"
+        android:text="@string/day_saturday" />
 
 </LinearLayout>
