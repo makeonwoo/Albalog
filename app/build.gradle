@@ -26,6 +26,7 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true// 라이브러리 추가를 위해서
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -36,6 +37,7 @@ android {
 }
 
 dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.9.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.9.0"
@@ -48,6 +50,7 @@ dependencies {
 
     // 캘린더 뷰 라이브러리
     implementation 'com.kizitonwose.calendar:view:2.4.0'
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
