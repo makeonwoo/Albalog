@@ -6,8 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.albalog.R
+import com.example.albalog.adapter.AlbaAdapter
+import com.example.albalog.adapter.CalendarDayBinder
+import com.example.albalog.adapter.GoalAdapter
 import com.example.albalog.databinding.FragmentCalendarBinding
+import com.example.albalog.model.AlbaItem
+import com.example.albalog.model.GoalItem
 import com.kizitonwose.calendar.view.CalendarView
 import java.time.DayOfWeek
 import java.time.YearMonth
@@ -36,6 +42,29 @@ class CalendarFragment : Fragment() {
 
         setupCalendar()
         observeViewModel()
+
+        // Alba 연결
+        //TODO 임시 데이터 - 추후 정리 예정
+        val albaList = listOf(
+            AlbaItem("편의점", "01:00 ~ 06:00"),
+            AlbaItem("카페", "09:00 ~ 14:00")
+        )
+
+        val albaAdapter = AlbaAdapter(albaList)
+        binding.recyclerAlba.adapter = albaAdapter
+        binding.recyclerAlba.layoutManager = LinearLayoutManager(requireContext())
+
+        // Goal 연결
+        //TODO 임시 데이터 - 추후 정리 예정
+        val goalList = listOf(
+            GoalItem("운동 1시간", 75),
+            GoalItem("공부 2시간", 40),
+            GoalItem("책 읽기", 60)
+        )
+
+        val goalAdapter = GoalAdapter(goalList)
+        binding.recyclerGoals.adapter = goalAdapter
+        binding.recyclerGoals.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun setupCalendar() {

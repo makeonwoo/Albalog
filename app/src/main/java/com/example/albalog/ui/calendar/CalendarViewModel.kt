@@ -19,7 +19,7 @@ class CalendarViewModel : ViewModel() {
     }
 
     fun loadEvents(month: YearMonth) {
-        //TODO 특정 날짜에 도트 표시할때 사용 - 데이터 세팅 이후에 추가 수정
+        //TODO: 특정 날짜에 도트 표시할때 사용 - 데이터 세팅 이후에 추가 수정
         _eventDates.value = listOf(
             LocalDate.of(month.year, month.month, 5),
             LocalDate.of(month.year, month.month, 12)

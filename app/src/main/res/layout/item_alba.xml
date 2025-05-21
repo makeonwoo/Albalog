@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/txtAlbaName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="편의점"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <!--TODO: 시간 관련 포멧 고민-->
+    <TextView
+        android:id="@+id/txtAlbaTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13:00 ~ 16:00"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <!-- TODO: 일일 목표와 동일하게 체크박스 아이콘 UI 고민 -->
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="출근"/>
+</LinearLayout>

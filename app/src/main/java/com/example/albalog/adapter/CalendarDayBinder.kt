@@ -1,4 +1,4 @@
-package com.example.albalog.ui.calendar
+package com.example.albalog.adapter
 
 import android.graphics.Color
 import android.view.View
