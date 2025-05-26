@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#FFFDF9"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingTop="24dp">
 
-        <!-- 상단 월 표시 -->
+        <!-- 💫 상단 월 표시 -->
         <TextView
             android:id="@+id/txtMonth"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingBottom="12dp"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingBottom="16dp"
             android:text="2025년 05월"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="#3A3A3A"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
-        <!-- 요일 헤더 포함 -->
+        <!-- 📆 요일 헤더 포함 -->
         <include
             android:id="@+id/includeDayHeader"
             layout="@layout/calendar_weekday_header" />
@@ -36,38 +37,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:minHeight="400dp"
+            app:cv_daySize="rectangle"
             app:cv_dayViewResource="@layout/calendar_day_layout" />
 
-        <!-- 구분선 -->
+        <!-- 🎨 구분선 -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginTop="16dp"
-            android:background="#E0E0E0" />
+            android:layout_marginTop="24dp"
+            android:background="#F0F0F0" />
 
-        <!-- 알바 카드 -->
+        <!-- 💼 알바 카드 타이틀 -->
         <TextView
             android:id="@+id/txtAlbaTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
             android:text="아르바이트"
+            android:textColor="#444444"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- 🧾 알바 카드 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardAlba"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
+            android:layout_margin="24dp"
+            android:backgroundTint="#F9F9FF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -81,29 +87,34 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 주간 목표 카드 -->
+        <!-- 🎯 주간 목표 타이틀 -->
         <TextView
             android:id="@+id/txtGoalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginBottom="8dp"
             android:text="주간 목표"
+            android:textColor="#444444"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- 📋 주간 목표 카드 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardGoal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="64dp"
+            android:layout_marginRight="24dp"
+            android:backgroundTint="#FFFDF5"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -115,7 +126,7 @@
                     tools:itemCount="2"
                     tools:listitem="@layout/item_goal" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

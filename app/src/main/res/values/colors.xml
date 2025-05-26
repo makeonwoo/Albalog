@@ -9,10 +9,13 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--기본 설정 컬러 -->
-    <color name="primaryColor">#3F51B5</color>
+    <color name="primaryColor">#FFFDF9</color>
     <color name="gray_300">#9E9E9E</color>
 
-    <color name="todayColor">#FF5722</color>
-    <color name="selectedColor">#E64A19</color>
+    <color name="todayColor">#F4A460</color>
+    <color name="selectedColor">#FFCC99</color>
+    <color name="albaColor">#A7C7E7</color>
+    <color name="goalColor">#B3E5A7</color>
+    <color name="memoColor">#F8D7DA</color>
 
 </resources>
