@@ -26,7 +26,7 @@ class AlbaAdapter(private val items: List<AlbaItem>) :
     override fun onBindViewHolder(holder: AlbaViewHolder, position: Int) {
         val item = items[position]
         holder.txtGoalName.text = item.name
-        holder.txtAlbaTime.text = item.name
+        holder.txtAlbaTime.text = item.time
     }
 
     override fun getItemCount() = items.size
