@@ -17,5 +17,8 @@
         <!-- 상태바 글자 색상 변경 -->
         <item name="windowNoTitle">true</item>
         <!-- 상단 바 없애기 -->
+
+        <!-- 시간 선택 테마 -->
+        <item name="android:timePickerStyle">@style/MyTimePickerTheme</item>
     </style>
 </resources>

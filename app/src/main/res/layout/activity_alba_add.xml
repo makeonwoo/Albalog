@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF9F6"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- 제목 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="알바 정보 입력"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
+
+    <!-- 알바 이름 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="알바 이름"
+        android:textSize="14sp"
+        android:textColor="#5D5D5D"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="예: 편의점 야간"
+        android:padding="12dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 시간 선택 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="시간 선택"
+        android:textSize="14sp"
+        android:textColor="#5D5D5D"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 시작 시간 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="시작 시간"
+        android:textSize="12sp"
+        android:textColor="#999999"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textStartTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="시작 시간 선택"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 종료 시간 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="종료 시간"
+        android:textSize="12sp"
+        android:textColor="#999999"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/textEndTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="종료 시간 선택"
+        android:textColor="#333333"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 반복 요일 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="반복 요일"
+        android:textSize="14sp"
+        android:textColor="#5D5D5D"
+        android:layout_marginBottom="12dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="2"
+        android:layout_marginBottom="24dp">
+
+        <CheckBox android:id="@+id/checkSun" android:text="일" android:textColor="#333333"/>
+        <CheckBox android:id="@+id/checkMon" android:text="월" android:textColor="#333333"/>
+        <CheckBox android:id="@+id/checkTue" android:text="화" android:textColor="#333333"/>
+        <CheckBox android:id="@+id/checkWed" android:text="수" android:textColor="#333333"/>
+        <CheckBox android:id="@+id/checkThu" android:text="목" android:textColor="#333333"/>
+        <CheckBox android:id="@+id/checkFri" android:text="금" android:textColor="#333333"/>
+        <CheckBox android:id="@+id/checkSat" android:text="토" android:textColor="#333333"/>
+    </GridLayout>
+
+    <!-- 등록 버튼 -->
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="등록하기"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:backgroundTint="#FFDAB9"
+        android:paddingVertical="12dp" />
+</LinearLayout>

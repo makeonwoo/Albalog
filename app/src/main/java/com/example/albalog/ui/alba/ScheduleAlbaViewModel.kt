@@ -1,4 +1,4 @@
-package com.example.albalog.ui.albaList
+package com.example.albalog.ui.alba
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

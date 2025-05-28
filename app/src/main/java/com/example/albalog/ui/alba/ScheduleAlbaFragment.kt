@@ -1,5 +1,6 @@
-package com.example.albalog.ui.albaList
+package com.example.albalog.ui.alba
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,15 +22,16 @@ class ScheduleAlbaFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(ScheduleAlbaViewModel::class.java)
-
         _binding = FragmentScheduleAlbaBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         // 1번: 알바 등록
         val btnAlbaAdd = root.findViewById<View>(R.id.btnAlbaAdd)
         btnAlbaAdd.findViewById<TextView>(R.id.textButtonTitle).text = "알바 등록"
+        btnAlbaAdd.setOnClickListener {
+            val intent = Intent(requireContext(), AlbaAddActivity::class.java)
+            startActivity(intent)
+        }
 
         // 2번: 알바 수정
         val btnAlbaEdit = root.findViewById<View>(R.id.btnAlbaEdit)
