@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF9F6"
+    android:background="#FFFDF9"
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- 제목 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,12 +16,12 @@
         android:layout_marginBottom="24dp"
         android:gravity="center" />
 
-    <!-- 알바 이름 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="알바 이름"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textColor="#5D5D5D"
         android:layout_marginBottom="4dp" />
 
@@ -35,16 +34,15 @@
         android:textColor="#333333"
         android:layout_marginBottom="24dp" />
 
-    <!-- 시간 선택 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="시간 선택"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textColor="#5D5D5D"
         android:layout_marginBottom="8dp" />
 
-    <!-- 시작 시간 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +60,6 @@
         android:textColor="#333333"
         android:layout_marginBottom="16dp" />
 
-    <!-- 종료 시간 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,12 +77,12 @@
         android:textColor="#333333"
         android:layout_marginBottom="24dp" />
 
-    <!-- 반복 요일 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="반복 요일"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textColor="#5D5D5D"
         android:layout_marginBottom="12dp" />
 

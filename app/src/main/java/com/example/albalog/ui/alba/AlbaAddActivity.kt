@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.albalog.R
 import com.example.albalog.databinding.ActivityAlbaAddBinding
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AlbaAddActivity : AppCompatActivity() {
@@ -60,7 +61,15 @@ class AlbaAddActivity : AppCompatActivity() {
         TimePickerDialog(
             context,
             { _, selectedHour, selectedMinute ->
-                val time = String.format("%02d:%02d", selectedHour, selectedMinute)
+                val cal = Calendar.getInstance().apply {
+                    set(Calendar.HOUR_OF_DAY, selectedHour)
+                    set(Calendar.MINUTE, selectedMinute)
+                }
+
+                // 오전/오후 표기를 위해 추가
+                val timeFormat = SimpleDateFormat("a hh:mm", Locale.KOREA)
+                val time = timeFormat.format(cal.time)
+
                 onTimeSelected(time)
             },
             hour,
